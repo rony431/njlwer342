@@ -6,7 +6,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      list: ['Sacar la ropa', 'Hacer la cama', 'Leer un rato'],
+      list: [],
       value: ''
     }
   }
@@ -18,8 +18,8 @@ class App extends Component {
       e.preventDefault();
       this.state.list[this.state.list.length] = this.state.value
       e.target.value = '';
-      this.setState ({list: this.state.list})
-      return this.state.value = "";
+      this.state.value = "";
+      return this.setState ({list: this.state.list})
 
     }
   } ;
@@ -29,6 +29,9 @@ class App extends Component {
         <div className="list">
           <h3>Por hacer:</h3>
           <ul className="todo" >
+            <li>Sacar la ropa </li>
+            <li>Hacer la cama </li>
+            <li>Leer un rato </li>
           {this.state.list.map((list, key) =>
           <li>{list}</li>
            )}
