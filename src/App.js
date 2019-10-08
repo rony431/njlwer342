@@ -18,6 +18,7 @@ class App extends Component {
       e.preventDefault();
       this.state.list[this.state.list.length] = this.state.value
       e.target.value = '';
+      this.state.value = '';
       return   this.setState ({list: this.state.list})
     }
   } ;
