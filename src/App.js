@@ -29,9 +29,9 @@ class App extends Component {
         <div className="list">
           <h3>Por hacer:</h3>
           <ul className="todo" >
-            <li>Sacar la ropa </li>
-            <li>Hacer la cama </li>
-            <li>Leer un rato </li>
+            <li>Sacar la ropa</li>
+            <li>Hacer la cama</li>
+            <li>Leer un rato</li>
           {this.state.list.map((list, key) =>
           <li>{list}</li>
            )}
