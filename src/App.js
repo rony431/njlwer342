@@ -4,9 +4,9 @@ import React, { Component } from 'react';
 
 class App extends Component {
   constructor() {
-    super();
+    super(); 
     this.state = {
-      list: [],
+      list: ['Sacar la ropa','Hacer la cama','Leer un rato'],
       value: ''
     }
   }
@@ -14,12 +14,10 @@ class App extends Component {
     return this.setState ({value: e.target.value}) };
 
   keyPressed = (e) =>{
-    if (e.key === "Enter" && !e.target.value == '') {
-      e.preventDefault();
+    e.preventDefault();
+    if (this.state.value) {
       this.state.list[this.state.list.length] = this.state.value
-      e.target.value = '';
-      this.state.value = "";
-      return this.setState ({list: this.state.list})
+      return this.setState ({list: this.state.list, value: ""})
 
     }
   } ;
@@ -29,16 +27,13 @@ class App extends Component {
         <div className="list">
           <h3>Por hacer:</h3>
           <ul className="todo" >
-            <li>Sacar la ropa</li>
-            <li>Hacer la cama</li>
-            <li>Leer un rato</li>
           {this.state.list.map((list, key) =>
           <li>{list}</li>
            )}
           
           </ul>
-           <form>
-             <input type="text" onChange = {this.handleValue} onKeyPress={this.keyPressed} id="new-task" placeholder="Ingresa una tarea y oprime Enter" />
+           <form onSubmit ={this.keyPressed}>
+             <input type="text" onChange = {this.handleValue} value = {this.state.value} id="new-task" placeholder="Ingresa una tarea y oprime Enter" />
            </form>
         </div>
       </div>
