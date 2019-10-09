@@ -14,7 +14,7 @@ class App extends Component {
     return this.setState ({value: e.target.value}) };
 
   keyPressed = (e) =>{
-    if (e.key === "Enter" && !e.target.value === '') {
+    if (e.key === "Enter" && !e.target.value == '') {
       e.preventDefault();
       this.state.list[this.state.list.length] = this.state.value
       e.target.value = '';
